@@ -18,7 +18,17 @@ if __name__=="__main__":
 			time.sleep(0.05)
 			if len(MQTTSub.Messages)>0:
 				msg = MQTTSub.Messages.pop()
-				print("Topic: " +msg.topic+"Message: "+str(msg.payload))
+				if msg.topic == "ece631/Lab2Python/temperature/":
+					Temp = json.loads(msg.payload)
+					TempVal = Temp.get('Fahrenheit', None)
+					if TempVal is not  None:
+						TempCel = (TempVal - 32) / 1.8
+						celDict = dict()
+						celDict['Celsius'] = TempCel
+						celStrJson = json.dumps(celDict)
+						print("Topic: "+msg.topic+"Message: "+str(msg.payload))
+						print(celStrJson)
+						MQTTPub.PushData("ece631/Lab2Python/temperature/", celStrJson) 
 	finally:
 		del MQTTSub
 		del MQTTPub
