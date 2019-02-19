@@ -1,2 +1,2 @@
-cd /home/enpayne/Lab2Python/
-screen -d -m -s Lab2Python -t /home/enpayne/Lab2Python/MQTTPubSucScript.py
+cd /home/pi/Lab2Python/
+screen -d -m -S Lab2Python -t /home/pi/Lab2Python/MQTTPubSubScript.py
