@@ -1,0 +1,109 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": -24
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Pass",
+						"size": "regular",
+						"value": "datasources[\"Lab2\"][\"msg\"][\"Pass\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Lat",
+						"size": "regular",
+						"value": "datasources[\"Lab2\"][\"msg\"][\"Lat\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Long",
+						"size": "regular",
+						"value": "datasources[\"Lab2\"][\"msg\"][\"Long\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "gauge",
+					"settings": {
+						"value": "datasources[\"Lab2\"][\"msg\"][\"Count\"]",
+						"min_value": 0,
+						"max_value": 100
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 2
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "picture",
+					"settings": {
+						"src": "datasources[\"Lab2\"][\"msg\"][\"Picture\"]",
+						"refresh": 5
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 3
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "google_map",
+					"settings": {
+						"lat": "datasources[\"Lab2\"][\"msg\"][\"Lat\"]",
+						"lon": "datasources[\"Lab2\"][\"msg\"][\"Long\"]"
+					}
+				}
+			]
+		}
+	],
+	"datasources": [
+		{
+			"name": "Lab2",
+			"type": "paho_mqtt",
+			"settings": {
+				"server": "192.168.1.222",
+				"port": 8080,
+				"use_ssl": false,
+				"client_id": "",
+				"username": "",
+				"password": "",
+				"topic": "ece631/#",
+				"json_data": true
+			}
+		}
+	],
+	"columns": 3
+}
